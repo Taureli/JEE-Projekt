@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+			<h:dataTable value="#{sklepBean.allSklepy}" var="item">
+			
+				<f:facet name="header">Lista sklepów</f:facet>
+				
+				<h:column>
+					<f:facet name="header">Nazwa</f:facet>
+					<h:outputText value="#{item.nazwa}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Miasto</f:facet>
+					<h:outputText value="#{item.miasto}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Usun</f:facet>
+					<h:commandLink value="Usun" action="#{sklepBean.deleteSklep(item)}"/>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Edytuj</f:facet>
+					<h:commandLink value="Edytuj" action="#{sklepBean.doEdycji(item)}"/>
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

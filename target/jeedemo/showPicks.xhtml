@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+			<h:dataTable value="#{pickBean.allPicks}" var="item">
+				<f:facet name="header">#{msg.pickList}</f:facet>
+				<h:column>
+					<f:facet name="header">Nazwa</f:facet>
+					<h:outputText value="#{item.nazwa}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Cena</f:facet>
+					<h:outputText value="#{item.cena}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Rozmiar</f:facet>
+					<h:outputText value="#{item.rozmiar.wartosc}"/>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Sklepy</f:facet>
+					<h:dataTable value="#{item.sklepy}" var="w">
+						<h:column>
+							<h:outputText value="#{w.nazwa} #{w.miasto} " />
+						</h:column>
+					</h:dataTable>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Usun</f:facet>
+					<h:commandLink value="Usun" action="#{pickBean.deletePick(item)}"/>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Edytuj</f:facet>
+					<h:commandLink value="Edytuj" action="#{pickBean.doEdycji(item)}"/>
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+		<h:form id="pickForm">
+			<h:panelGrid columns="2" id="pick">
+
+				<h:outputText value="Nazwa" />
+				<h:inputText id="nazwa" value="#{pickBean.pick.nazwa}"
+					required="#{true}" />
+					
+				<h:outputText value="Cena" />
+				<h:inputText id="cena" value="#{pickBean.pick.cena}" />
+
+				<h:outputText value="Rozmiar"  />
+				<h:selectOneMenu value="#{pickBean.rozmiarId}" required="true" requiredMessage="Brak rozmiaru kostki"> 
+					<f:selectItem itemLabel="Wybierz rozmiar kostki"/>
+					<f:selectItems value="#{pickBean.allRozmiary}" var="c" itemValue="#{c.id}" itemLabel="#{c.wartosc}"/>
+				</h:selectOneMenu> 
+
+				 
+				<h:outputText value = "Sklep"  />				
+				<h:selectManyListbox value="#{pickBean.sklepyTemp}" converter="listaConverter">
+					<f:selectItem itemLabel="Wybierz sklep"/>
+					<f:selectItems  value="#{pickBean.allSklepy}" var="c" itemValue="#{c}" itemLabel="#{c.nazwa} #{c.miasto}"/>
+				</h:selectManyListbox>
+				
+			</h:panelGrid>
+			<h:commandButton value="OK" action="#{pickBean.editPick()}"/>
+
+			<h:panelGrid>
+				<h:messages for="" />
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
