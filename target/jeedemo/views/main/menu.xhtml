@@ -2,46 +2,31 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" >
   <div>
 	<h:form>
-	  <ul>
-		<li>
-		  <h:commandLink action="home?faces-redirect=true">
-			<h:outputText value="#{msg.linkHome}" />
-		  </h:commandLink>
-		</li>
-		<li>
-		  <h:commandLink action="addPick">
-			 <h:outputText value="Nowa kostka" />
-		  </h:commandLink>
-		</li>
-		<li>
-		  <h:commandLink action="showPicks">
-			 <h:outputText value="Spis kostek" />
-		  </h:commandLink>
-		</li>
-		<li>
-		  <h:commandLink action="addRozmiar">
-			 <h:outputText value="Nowy rozmiar kostki" />
-		  </h:commandLink>
-		</li>
-		<li>
-		  <h:commandLink action="showRozmiary">
-			 <h:outputText value="Spis rozmiarów kostek" />
-		  </h:commandLink>
-		</li>
-		<li>
-		  <h:commandLink action="addSklep">
-			 <h:outputText value="Nowy sklep" />
-		  </h:commandLink>
-		</li>
-		<li>
-		  <h:commandLink action="showSklepy">
-			 <h:outputText value="Spis sklepów" />
-		  </h:commandLink>
-		</li>
-	</ul>
+	
+	<p:panelMenu style="width:200px">  
+	 <p:submenu label="MENU" > 
+	  <p:menuitem value="#{msg.linkHome}" action="home?faces-redirect=true" />
+	  <p:submenu label="Kostka" > 
+	  	<p:menuitem value="Nowa kostka" action="addPick" />
+	  	<p:menuitem value="Spis kostek" action="showPicks" />
+	  </p:submenu>
+	  <p:submenu label="Rozmiar" > 
+	  	<p:menuitem value="Nowy rozmiar" action="addRozmiar" />
+	  	<p:menuitem value="Spis rozmiarów" action="showRozmiary" />
+	  </p:submenu>
+	  <p:submenu label="Sklep" > 
+	  	<p:menuitem value="Nowy sklep" action="addSklep" />
+	  	<p:menuitem value="Spis sklepów" action="showSklepy" />
+	  </p:submenu>
+	 </p:submenu>
+	</p:panelMenu> 
+	
+	
+	  
    </h:form>
   </div>
 </ui:composition>
