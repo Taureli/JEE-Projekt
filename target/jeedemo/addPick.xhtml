@@ -39,7 +39,7 @@
 
 				<h:outputText value="Rozmiar"  />
 				<h:selectOneMenu value="#{pickBean.rozmiarId}" required="true" requiredMessage="Kostka musi posiadac rozmiar"> 
-					<f:selectItem itemLabel="Wybierz rozmiar"/>
+					<f:selectItem itemLabel="Wybierz rozmiar kostki"/>
 					<f:selectItems value="#{pickBean.allRozmiary}" var="c" itemValue="#{c.id}" itemLabel="#{c.wartosc}"/>
 				</h:selectOneMenu> 
 				<h:panelGrid id="erRozmiar">
@@ -49,6 +49,7 @@
 				 
 				<h:outputText value = "Sklep"  />				
 				<h:selectManyListbox value="#{pickBean.sklepyTemp}" converter="listaConverter">
+					<f:selectItem itemLabel="Wybierz sklepy"/>
 					<f:selectItems  value="#{pickBean.allSklepy}" var="c" itemValue="#{c}" itemLabel="#{c.nazwa} #{c.miasto}"/>
 				</h:selectManyListbox>
 				<h:panelGrid id="erSklep">

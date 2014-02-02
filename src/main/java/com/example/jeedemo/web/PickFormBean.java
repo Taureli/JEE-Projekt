@@ -128,8 +128,13 @@ public class PickFormBean implements Serializable {
 	}
 	
 	public String editPick(){
+	//	pickManager.editPick(pick);
+	//	this.pick = new Pick();
+		
+		pick.setRozmiar(pickManager.getEm().find(Rozmiar.class, rozmiarId));
+		pick.setSklepy(sklepyTemp);
 		pickManager.editPick(pick);
-		this.pick = new Pick();
+		
 		return "showPicks";
 	}
 	
