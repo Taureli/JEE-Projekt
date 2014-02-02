@@ -11,7 +11,7 @@
 
 	<ui:define name="content">
 
-		<h:form id="pickForm">
+		<h:form id="pickEditForm">
 			<h:panelGrid columns="2" id="pick">
 
 				<h:outputText value="Nazwa" />
@@ -29,7 +29,7 @@
 
 				 
 				<h:outputText value = "Sklep"  />				
-				<h:selectManyListbox value="#{pickBean.sklepyTemp}" converter="listaConverter">
+				<h:selectManyListbox value="#{pickBean.sklepyTemp}" converter="listaConverter" requiredMessage="Brak sklepu">
 					<f:selectItem itemLabel="Wybierz sklep"/>
 					<f:selectItems  value="#{pickBean.allSklepy}" var="c" itemValue="#{c}" itemLabel="#{c.nazwa} #{c.miasto}"/>
 				</h:selectManyListbox>

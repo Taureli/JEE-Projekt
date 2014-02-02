@@ -19,6 +19,7 @@ public class RozmiarManager {
 		em.persist(rozmiar);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Rozmiar> getAllRozmiary(){
 		return em.createNamedQuery("rozmiar.getRozmiary").getResultList();
 	}

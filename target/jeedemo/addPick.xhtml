@@ -30,6 +30,12 @@
 				<h:panelGrid id="erCena">
 					<h:message for="cena"/>
 				</h:panelGrid>
+				
+				<h:outputText id="date" value="Date of Production" />  
+      			 <p:calendar id="cal" maxdate="#{pickBean.pick.yop}" required="true" validatorMessage="true" effect="explode">   
+      			 
+      			 </p:calendar>
+      			 <p:message for="cal" display="icon" /> 
 
 				<h:outputText value="Rozmiar"  />
 				<h:selectOneMenu value="#{pickBean.rozmiarId}" required="true" requiredMessage="Kostka musi posiadac rozmiar"> 

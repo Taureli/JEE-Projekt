@@ -19,6 +19,7 @@ public class SklepManager {
 		em.persist(sklep);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Sklep> getAllSklepy(){
 		return em.createNamedQuery("sklep.getAll").getResultList();
 	}

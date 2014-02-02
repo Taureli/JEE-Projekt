@@ -2,13 +2,9 @@ package com.example.jeedemo.web;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -25,6 +21,8 @@ import com.example.jeedemo.service.SklepManager;
 @SessionScoped
 @Named("pickBean")
 public class PickFormBean implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private Pick pick = new Pick();
 	private ListDataModel<Pick> picks = new ListDataModel<Pick>();

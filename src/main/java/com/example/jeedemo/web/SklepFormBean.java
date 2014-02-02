@@ -12,6 +12,8 @@ import com.example.jeedemo.service.SklepManager;
 @Named("sklepBean")
 public class SklepFormBean implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	private Sklep sklep = new Sklep();
 	private ListDataModel<Sklep> sklepy = new ListDataModel<Sklep>();
 	private Long sklepId;
